@@ -23,6 +23,32 @@
 
         #bg-canvas { position: fixed; top: 0; left: 0; z-index: -1; pointer-events: none; }
 
+        /* Scroll Hint Overlay */
+        #scroll-hint {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            color: white;
+            background: rgba(255, 77, 109, 0.8);
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: opacity 0.5s ease, visibility 0.5s;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateX(-50%) translateY(0);}
+            40% {transform: translateX(-50%) translateY(-10px);}
+            60% {transform: translateX(-50%) translateY(-5px);}
+        }
+
         section {
             min-height: 100vh;
             display: flex;
@@ -60,7 +86,6 @@
 
         video { width: 100%; border-radius: 25px; display: block; }
 
-        /* Note Cards */
         .note {
             background: var(--glass);
             backdrop-filter: blur(10px);
@@ -74,7 +99,6 @@
 
         h3 { color: var(--rose); font-family: 'Dancing Script', cursive; font-size: 2rem; margin-top: 0; }
 
-        /* Gallery */
         .gallery {
             display: grid;
             grid-template-columns: 1fr;
@@ -87,7 +111,6 @@
             width: 100%;
             border-radius: 35px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
         }
 
         .heart-divider { font-size: 2.5rem; color: var(--rose); margin: 20px 0; }
@@ -98,15 +121,15 @@
 </head>
 <body>
 
+    <div id="scroll-hint">Scroll down for a surprise ↓</div>
+
     <canvas id="bg-canvas"></canvas>
 
-    <!-- HEADER -->
     <section class="hero">
         <h1>Good Morning, Chweety!</h1>
         <p style="font-size: 1.2rem; font-weight: 300;">You are the light of my life.</p>
     </section>
 
-    <!-- VIDEO -->
     <section>
         <div class="heart-divider">♥</div>
         <h2 style="color: var(--rose); font-family: 'Dancing Script'; font-size: 2.8rem; margin: 0;">Our Forever</h2>
@@ -117,7 +140,6 @@
         </div>
     </section>
 
-    <!-- POETRY/TEXT -->
     <section>
         <div class="note">
             <h3>To Sowmya...</h3>
@@ -129,7 +151,6 @@
         </div>
     </section>
 
-    <!-- MEMORIES -->
     <section>
         <h2 style="color: var(--rose); font-family: 'Dancing Script'; font-size: 2.8rem; margin-bottom: 30px;">Beautiful Memories</h2>
         <div class="gallery">
@@ -143,6 +164,7 @@
     </footer>
 
     <script>
+        // BACKGROUND HEARTS
         const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
         let hearts = [];
@@ -173,6 +195,18 @@
         init();
         for(let i=0; i<30; i++) hearts.push(new Heart());
         animate();
+
+        // SCROLL HINT HIDER
+        window.onscroll = function() {
+            const hint = document.getElementById('scroll-hint');
+            if (window.pageYOffset > 50) {
+                hint.style.opacity = "0";
+                hint.style.visibility = "hidden";
+            } else {
+                hint.style.opacity = "1";
+                hint.style.visibility = "visible";
+            }
+        };
     </script>
 </body>
 </html>
