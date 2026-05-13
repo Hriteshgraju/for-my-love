@@ -3,106 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Chweety</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <title>Good Morning My Everything</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --rose: #ff4d6d;
             --soft-pink: #ffb3c1;
-            --white: #ffffff;
+            --glass: rgba(255, 255, 255, 0.2);
         }
+
+        * { scroll-behavior: smooth; }
 
         body {
             margin: 0;
             background: #fff5f6;
-            color: #333;
+            color: #444;
             font-family: 'Poppins', sans-serif;
             text-align: center;
-            overflow-x: hidden;
         }
 
-        /* Floating Hearts Background */
-        #bg-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: -1;
-        }
+        /* Floating Hearts Layer */
+        #bg-canvas { position: fixed; top: 0; left: 0; z-index: -1; pointer-events: none; }
 
-        /* Hero Image Section */
-        .hero {
-            height: 50vh;
-            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('bg.png');
-            background-size: cover;
-            background-position: center;
+        /* Section Styling */
+        section {
+            min-height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('bg.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
             border-bottom-left-radius: 60px;
             border-bottom-right-radius: 60px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
 
-        .hero h1 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 3rem;
-            color: white;
-            text-shadow: 2px 4px 10px rgba(0,0,0,0.3);
-            margin: 0;
-        }
+        h1 { font-family: 'Dancing Script', cursive; font-size: 3.5rem; text-shadow: 2px 4px 10px rgba(0,0,0,0.3); margin: 0; }
 
         /* Video Section */
-        .main-content {
-            margin-top: -60px;
-            padding: 0 20px;
-        }
-
         .video-box {
             background: white;
-            padding: 8px;
+            padding: 10px;
             border-radius: 30px;
-            box-shadow: 0 20px 40px rgba(255, 77, 109, 0.2);
+            box-shadow: 0 20px 50px rgba(255, 77, 109, 0.2);
+            width: 100%;
             max-width: 450px;
-            margin: 0 auto 30px;
             overflow: hidden;
         }
 
-        video {
-            width: 100%;
-            border-radius: 22px;
-            display: block;
-        }
+        video { width: 100%; border-radius: 20px; display: block; }
 
-        /* Photo Gallery */
+        /* Animated GIF Placeholders */
+        .gif-container { margin: 20px 0; width: 120px; }
+
+        /* Gallery Grid */
         .gallery {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            width: 100%;
             max-width: 450px;
-            margin: 0 auto;
-            padding-bottom: 50px;
         }
 
         .gallery img {
             width: 100%;
-            height: 200px;
+            height: 350px;
             object-fit: cover;
+            border-radius: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Love Note Cards */
+        .note {
+            background: white;
+            padding: 30px;
             border-radius: 25px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
+            margin: 20px;
+            box-shadow: 0 10px 30px rgba(255, 179, 193, 0.3);
+            border-left: 5px solid var(--rose);
         }
 
-        .gallery img:hover {
-            transform: scale(1.05);
+        .scroll-indicator {
+            position: absolute;
+            bottom: 20px;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
         }
 
-        .love-quote {
-            font-style: italic;
-            color: var(--rose);
-            margin: 20px 0;
-            font-size: 1.1rem;
-            padding: 0 20px;
-        }
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} 60% {transform: translateY(-5px);} }
 
     </style>
 </head>
@@ -110,68 +106,80 @@
 
     <canvas id="bg-canvas"></canvas>
 
+    <!-- SECTION 1: WELCOME -->
     <section class="hero">
+        <div class="gif-container">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHY5bnpwdW5idG54Nng0bmRxYnQzbmx4Zzh4eHh4eHh4eHh4eHh4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/L4lvBpHWk_UvH5QZ3p/giphy.gif" width="100%">
+        </div>
         <h1>Good Morning, Chweety!</h1>
+        <p>A new day to love you more...</p>
+        <div class="scroll-indicator">↓</div>
     </section>
 
-    <div class="main-content">
+    <!-- SECTION 2: OUR VIDEO -->
+    <section>
+        <h2 style="color: var(--rose); font-family: 'Dancing Script'; font-size: 2.5rem;">Our Special Moments</h2>
         <div class="video-box">
             <video controls autoplay muted loop playsinline>
                 <source src="20260510_115249.mp4" type="video/mp4">
             </video>
         </div>
+    </section>
 
-        <p class="love-quote">"You are my favorite thought every single morning."</p>
+    <!-- SECTION 3: LOVE NOTES -->
+    <section>
+        <div class="note">
+            <h3>My Promise ❤️</h3>
+            <p>To always be the reason behind your smile and the person you can count on forever.</p>
+        </div>
+        <div class="note">
+            <h3>You are Beautiful ✨</h3>
+            <p>Inside and out, you are the most precious person I have ever known.</p>
+        </div>
+    </section>
 
+    <!-- SECTION 4: THE GALLERY -->
+    <section>
+        <h2 style="color: var(--rose); font-family: 'Dancing Script'; font-size: 2.5rem;">Memories with You</h2>
         <div class="gallery">
             <img src="us1.png" alt="Memory One">
             <img src="20260328_124945.jpg" alt="Memory Two">
         </div>
-    </div>
+        <div class="gif-container" style="width: 200px;">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbTVueXh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/T8G1KozSvxWwB3pS0h/giphy.gif" width="100%">
+        </div>
+    </section>
+
+    <footer style="padding: 50px; color: var(--rose); font-weight: 600;">
+        You're my forever and always. ❤️
+    </footer>
 
     <script>
+        // BACKGROUND HEARTS
         const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
         let hearts = [];
-
-        function init() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-
+        function init() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
         class Heart {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = canvas.height + 10;
-                this.size = Math.random() * 10 + 5;
-                this.speed = Math.random() * 1.5 + 0.5;
-                this.opacity = Math.random() * 0.5 + 0.2;
-            }
-            draw() {
-                ctx.fillStyle = `rgba(255, 77, 109, ${this.opacity})`;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-            update() {
-                this.y -= this.speed;
-                if (this.y < -10) {
-                    this.y = canvas.height + 10;
-                    this.x = Math.random() * canvas.width;
-                }
-            }
+            constructor() { this.reset(); }
+            reset() { this.x = Math.random() * canvas.width; this.y = canvas.height + 20; this.size = Math.random() * 8 + 4; this.speed = Math.random() * 1.5 + 0.5; this.opacity = Math.random() * 0.5 + 0.2; }
+            draw() { ctx.fillStyle = `rgba(255, 77, 109, ${this.opacity})`; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill(); }
+            update() { this.y -= this.speed; if (this.y < -20) this.reset(); }
         }
-
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            hearts.forEach(h => { h.update(); h.draw(); });
-            requestAnimationFrame(animate);
-        }
-
+        function animate() { ctx.clearRect(0, 0, canvas.width, canvas.height); hearts.forEach(h => { h.update(); h.draw(); }); requestAnimationFrame(animate); }
         window.addEventListener('resize', init);
         init();
-        for(let i=0; i<30; i++) hearts.push(new Heart());
+        for(let i=0; i<25; i++) hearts.push(new Heart());
         animate();
+
+        // AUTO-SCROLL LOGIC
+        // This will wait 4 seconds after she opens the page, then slowly scroll to the bottom.
+        setTimeout(() => {
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: 'smooth'
+            });
+        }, 4000); 
     </script>
 </body>
 </html>
