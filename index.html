@@ -3,119 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Good Morning Chweety</title>
+    <title>For My Chweety</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-pink: #ff4d6d;
-            --glass: rgba(255, 255, 255, 0.25);
+            --rose: #ff4d6d;
+            --soft-pink: #ffb3c1;
+            --white: #ffffff;
         }
 
         body {
             margin: 0;
-            background: #fff0f3;
+            background: #fff5f6;
             color: #333;
             font-family: 'Poppins', sans-serif;
             text-align: center;
             overflow-x: hidden;
         }
 
+        /* Floating Hearts Background */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
         /* Hero Image Section */
         .hero {
-            height: 55vh;
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('bg.png');
+            height: 50vh;
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('bg.png');
             background-size: cover;
             background-position: center;
             display: flex;
             justify-content: center;
             align-items: center;
+            border-bottom-left-radius: 60px;
+            border-bottom-right-radius: 60px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .hero h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
             color: white;
-            border-bottom-left-radius: 50px;
-            border-bottom-right-radius: 50px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            text-shadow: 2px 4px 10px rgba(0,0,0,0.3);
+            margin: 0;
         }
 
-        .glass-header {
-            background: var(--glass);
-            backdrop-filter: blur(12px);
-            padding: 20px 30px;
+        /* Video Section */
+        .main-content {
+            margin-top: -60px;
+            padding: 0 20px;
+        }
+
+        .video-box {
+            background: white;
+            padding: 8px;
             border-radius: 30px;
-            border: 1px solid rgba(255,255,255,0.3);
-            animation: fadeInDown 1.5s ease;
-        }
-
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Video Player */
-        .video-wrapper {
-            margin: -40px auto 30px;
-            width: 85%;
+            box-shadow: 0 20px 40px rgba(255, 77, 109, 0.2);
             max-width: 450px;
-            border-radius: 25px;
+            margin: 0 auto 30px;
             overflow: hidden;
-            background: #000;
-            box-shadow: 0 15px 35px rgba(255, 77, 109, 0.3);
-            border: 4px solid white;
-            z-index: 10;
-            position: relative;
         }
 
-        video { width: 100%; display: block; }
+        video {
+            width: 100%;
+            border-radius: 22px;
+            display: block;
+        }
 
-        /* Modern Image Grid */
+        /* Photo Gallery */
         .gallery {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
-            padding: 0 20px 40px;
-            max-width: 500px;
+            max-width: 450px;
             margin: 0 auto;
+            padding-bottom: 50px;
         }
 
         .gallery img {
             width: 100%;
-            height: 220px;
+            height: 200px;
             object-fit: cover;
             border-radius: 25px;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
         }
 
-        .gallery img:active { transform: scale(0.9); }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
 
-        .footer-text {
-            color: var(--primary-pink);
-            font-weight: 600;
-            padding-bottom: 50px;
+        .love-quote {
+            font-style: italic;
+            color: var(--rose);
+            margin: 20px 0;
             font-size: 1.1rem;
+            padding: 0 20px;
         }
+
     </style>
 </head>
 <body>
 
+    <canvas id="bg-canvas"></canvas>
+
     <section class="hero">
-        <div class="glass-header">
-            <h1 style="margin:0; font-size: 1.8rem;">Good Morning, Chweety! ❤️</h1>
-        </div>
+        <h1>Good Morning, Chweety!</h1>
     </section>
 
-    <div class="video-wrapper">
-        <video controls autoplay muted loop playsinline>
-            <source src="video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+    <div class="main-content">
+        <div class="video-box">
+            <video controls autoplay muted loop playsinline>
+                <source src="20260510_115249.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <p class="love-quote">"You are my favorite thought every single morning."</p>
+
+        <div class="gallery">
+            <img src="us1.png" alt="Memory One">
+            <img src="20260328_124945.jpg" alt="Memory Two">
+        </div>
     </div>
 
-    <div class="gallery">
-        <img src="us1.png" alt="Memory One">
-        <img src="us2.jpg" alt="Memory Two">
-    </div>
+    <script>
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        let hearts = [];
 
-    <div class="footer-text">
-        Every moment with you is a treasure. ✨
-    </div>
+        function init() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
 
+        class Heart {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = canvas.height + 10;
+                this.size = Math.random() * 10 + 5;
+                this.speed = Math.random() * 1.5 + 0.5;
+                this.opacity = Math.random() * 0.5 + 0.2;
+            }
+            draw() {
+                ctx.fillStyle = `rgba(255, 77, 109, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            update() {
+                this.y -= this.speed;
+                if (this.y < -10) {
+                    this.y = canvas.height + 10;
+                    this.x = Math.random() * canvas.width;
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            hearts.forEach(h => { h.update(); h.draw(); });
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', init);
+        init();
+        for(let i=0; i<30; i++) hearts.push(new Heart());
+        animate();
+    </script>
 </body>
 </html>
