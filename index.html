@@ -6,7 +6,7 @@
 
 <title>Good Morning Chweety ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 
@@ -16,35 +16,35 @@
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     font-family:'Poppins',sans-serif;
-    overflow-x:hidden;
     background:#050816;
+    overflow-x:hidden;
     color:white;
 }
 
-/* BACKGROUND */
+/* FULL BACKGROUND */
 
-.hero{
-    min-height:100vh;
-    position:relative;
-    overflow:hidden;
-    padding:40px 20px;
-}
-
-.bg{
+.background{
     position:fixed;
     inset:0;
     z-index:-10;
+    overflow:hidden;
+
     background:
-    radial-gradient(circle at top left, rgba(255,120,160,0.25), transparent 30%),
-    radial-gradient(circle at bottom right, rgba(255,220,120,0.18), transparent 30%),
-    radial-gradient(circle at center, rgba(120,140,255,0.18), transparent 40%),
-    linear-gradient(135deg,#050816,#101935,#0d1428);
-    animation:bgmove 12s infinite alternate ease-in-out;
+    radial-gradient(circle at top left, rgba(255,120,180,0.25), transparent 25%),
+    radial-gradient(circle at bottom right, rgba(255,200,120,0.18), transparent 25%),
+    radial-gradient(circle at center, rgba(120,150,255,0.18), transparent 35%),
+    linear-gradient(135deg,#040816,#0b1327,#121f3d);
+
+    animation:bgzoom 14s infinite alternate ease-in-out;
 }
 
-@keyframes bgmove{
+@keyframes bgzoom{
     from{
         transform:scale(1);
     }
@@ -53,36 +53,36 @@ body{
     }
 }
 
-/* FLOATING LIGHTS */
+/* BLUR LIGHTS */
 
 .blur{
     position:absolute;
     border-radius:50%;
-    filter:blur(90px);
+    filter:blur(100px);
     opacity:.5;
     animation:float 12s infinite alternate ease-in-out;
 }
 
 .blur1{
-    width:300px;
-    height:300px;
-    background:#ff4da6;
-    top:-80px;
-    left:-80px;
+    width:350px;
+    height:350px;
+    background:#ff5ea8;
+    top:-120px;
+    left:-120px;
 }
 
 .blur2{
-    width:350px;
-    height:350px;
-    background:#ffcc66;
-    bottom:-100px;
-    right:-100px;
+    width:400px;
+    height:400px;
+    background:#ffd166;
+    bottom:-150px;
+    right:-150px;
 }
 
 .blur3{
-    width:250px;
-    height:250px;
-    background:#7b8dff;
+    width:280px;
+    height:280px;
+    background:#6e8dff;
     top:40%;
     left:45%;
 }
@@ -92,87 +92,56 @@ body{
         transform:translateY(0px) translateX(0px);
     }
     to{
-        transform:translateY(-50px) translateX(30px);
+        transform:translateY(-60px) translateX(40px);
     }
 }
 
-/* FLOATING HEARTS */
+/* FLOATING ELEMENTS */
 
-.hearts span{
+.floating span{
     position:absolute;
-    color:rgba(255,255,255,0.5);
-    animation:hearts linear infinite;
+    animation:fly linear infinite;
+    opacity:.7;
     user-select:none;
 }
 
-@keyframes hearts{
+@keyframes fly{
     0%{
-        transform:translateY(100vh) scale(0);
+        transform:translateY(110vh) scale(0);
         opacity:0;
     }
+
     20%{
         opacity:1;
     }
+
     100%{
-        transform:translateY(-20vh) scale(1.5);
+        transform:translateY(-20vh) scale(1.6);
         opacity:0;
     }
 }
 
-/* MAIN CARD */
+/* MAIN SECTION */
 
-.card{
-    width:min(1350px,96%);
-    margin:auto;
-    margin-top:40px;
-    padding:60px;
-    border-radius:40px;
-    background:rgba(255,255,255,0.08);
-    border:1px solid rgba(255,255,255,0.12);
-    backdrop-filter:blur(22px);
+.hero{
+    width:100%;
+    min-height:100vh;
+    padding:40px 6vw 80px;
     position:relative;
-    overflow:hidden;
-    box-shadow:
-    0 20px 60px rgba(0,0,0,0.45),
-    inset 0 0 0 1px rgba(255,255,255,0.05);
 }
 
-/* SHINE */
-
-.shine{
-    position:absolute;
-    top:-150%;
-    left:-50%;
-    width:200%;
-    height:300%;
-    background:linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,0.08),
-    transparent
-    );
-    transform:rotate(25deg);
-    animation:shine 8s infinite;
-}
-
-@keyframes shine{
-    0%{
-        transform:translateX(-100%) rotate(25deg);
-    }
-    100%{
-        transform:translateX(100%) rotate(25deg);
-    }
-}
-
-/* HEADER */
+/* TOP */
 
 .top{
+    width:100%;
     text-align:center;
+    padding-top:30px;
 }
 
 .sun{
-    font-size:100px;
+    font-size:120px;
     animation:sun 4s infinite alternate ease-in-out;
+    filter:drop-shadow(0 0 20px rgba(255,200,120,0.4));
 }
 
 @keyframes sun{
@@ -186,33 +155,49 @@ body{
 
 h1{
     margin-top:10px;
-    font-size:clamp(4rem,8vw,8rem);
-    font-weight:800;
-    line-height:1;
-    background:linear-gradient(to right,#fff,#ffe38a,#ff9dc8);
+    font-size:clamp(4rem,11vw,9rem);
+    line-height:0.95;
+    font-weight:900;
+    letter-spacing:-3px;
+
+    background:linear-gradient(
+    to right,
+    #ffffff,
+    #ffe08a,
+    #ffb3d1,
+    #ffffff
+    );
+
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
+
+    text-shadow:0 0 30px rgba(255,255,255,0.08);
 }
 
 .subtitle{
-    margin-top:25px;
-    font-size:1.25rem;
+    margin:35px auto 0;
+    max-width:900px;
+    font-size:1.3rem;
     line-height:2;
-    max-width:850px;
-    margin-inline:auto;
     color:rgba(255,255,255,0.85);
 }
 
-/* TIME */
+/* GLASS TIME */
+
+.time-wrap{
+    margin-top:40px;
+    display:flex;
+    justify-content:center;
+}
 
 .time-box{
-    margin-top:35px;
-    display:inline-flex;
-    flex-direction:column;
     padding:22px 45px;
     border-radius:25px;
     background:rgba(255,255,255,0.08);
-    border:1px solid rgba(255,255,255,0.1);
+    border:1px solid rgba(255,255,255,0.12);
+    backdrop-filter:blur(20px);
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
 }
 
 #time{
@@ -227,40 +212,54 @@ h1{
 
 /* GALLERY */
 
-.gallery-title{
-    margin-top:60px;
+.gallery-section{
+    margin-top:100px;
+}
+
+.section-title{
     text-align:center;
-    font-size:2.3rem;
-    font-weight:700;
+    font-size:3rem;
+    font-weight:800;
+    margin-bottom:50px;
 }
 
 .gallery{
-    margin-top:35px;
+    width:100%;
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:28px;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:35px;
 }
+
+/* IMAGE CARDS */
 
 .photo{
     position:relative;
     overflow:hidden;
-    border-radius:30px;
-    height:400px;
-    background:#111;
-    border:1px solid rgba(255,255,255,0.08);
-    transition:.5s;
+    border-radius:35px;
+    height:500px;
+
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.1);
+
+    box-shadow:
+    0 20px 40px rgba(0,0,0,0.35),
+    inset 0 0 0 1px rgba(255,255,255,0.04);
+
+    transition:.6s;
+}
+
+.photo:hover{
+    transform:translateY(-12px) scale(1.02);
+    box-shadow:
+    0 25px 50px rgba(255,100,170,0.2),
+    inset 0 0 0 1px rgba(255,255,255,0.04);
 }
 
 .photo img{
     width:100%;
     height:100%;
     object-fit:cover;
-    transition:1s;
-}
-
-.photo:hover{
-    transform:translateY(-10px) scale(1.02);
-    box-shadow:0 20px 40px rgba(255,120,170,0.25);
+    transition:1.2s;
 }
 
 .photo:hover img{
@@ -270,23 +269,36 @@ h1{
 .photo::after{
     content:'❤️';
     position:absolute;
-    top:18px;
-    right:18px;
-    font-size:24px;
+    top:20px;
+    right:20px;
+    font-size:28px;
+    z-index:2;
 }
 
-/* MESSAGE */
+/* LOVE MESSAGE */
 
-.message{
-    margin-top:60px;
-    padding:35px;
-    border-radius:30px;
+.message-box{
+    margin-top:100px;
+
+    padding:50px;
+
+    border-radius:35px;
+
+    background:rgba(255,255,255,0.06);
+
+    border:1px solid rgba(255,255,255,0.1);
+
+    backdrop-filter:blur(20px);
+
     text-align:center;
-    line-height:2;
-    font-size:1.2rem;
-    background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.08);
+
+    line-height:2.2;
+
+    font-size:1.3rem;
+
     color:rgba(255,255,255,0.9);
+
+    box-shadow:0 20px 40px rgba(0,0,0,0.25);
 }
 
 /* BUTTON */
@@ -297,40 +309,66 @@ h1{
 }
 
 .btn{
-    margin-top:35px;
-    padding:18px 38px;
+    margin-top:40px;
+
+    padding:18px 40px;
+
     border:none;
+
     border-radius:20px;
-    background:linear-gradient(135deg,#ff8a00,#ff4d88);
-    color:white;
+
     font-size:1rem;
-    font-weight:600;
+
+    font-weight:700;
+
+    color:white;
+
     cursor:pointer;
+
+    background:linear-gradient(
+    135deg,
+    #ff8a00,
+    #ff4d88
+    );
+
+    box-shadow:0 10px 30px rgba(255,100,150,0.3);
+
     transition:.4s;
-    box-shadow:0 10px 30px rgba(255,100,160,0.3);
 }
 
 .btn:hover{
-    transform:translateY(-5px) scale(1.03);
+    transform:translateY(-6px) scale(1.04);
 }
 
 /* MUSIC BUTTON */
 
 .music{
     position:fixed;
+
     top:20px;
     right:20px;
+
     width:60px;
     height:60px;
-    border-radius:50%;
+
     border:none;
-    cursor:pointer;
+
+    border-radius:50%;
+
     background:rgba(255,255,255,0.08);
-    backdrop-filter:blur(10px);
+
+    border:1px solid rgba(255,255,255,0.12);
+
+    backdrop-filter:blur(20px);
+
     color:white;
+
     font-size:1.4rem;
-    border:1px solid rgba(255,255,255,0.1);
+
+    cursor:pointer;
+
     z-index:999;
+
     transition:.4s;
 }
 
@@ -342,24 +380,41 @@ h1{
 
 @media(max-width:768px){
 
-    .card{
-        padding:35px 20px;
+    .hero{
+        padding:25px 5vw 60px;
     }
 
-    .photo{
-        height:320px;
+    h1{
+        font-size:4.7rem;
+        letter-spacing:-2px;
     }
 
     .subtitle{
         font-size:1rem;
+        line-height:1.9;
     }
 
-    .message{
+    .section-title{
+        font-size:2rem;
+    }
+
+    .gallery{
+        grid-template-columns:1fr;
+        gap:25px;
+    }
+
+    .photo{
+        height:420px;
+    }
+
+    .message-box{
+        padding:30px 22px;
         font-size:1rem;
+        line-height:2;
     }
 
-    .gallery-title{
-        font-size:1.7rem;
+    #time{
+        font-size:2rem;
     }
 }
 
@@ -368,27 +423,28 @@ h1{
 
 <body>
 
-<div class="bg"></div>
+<div class="background"></div>
 
 <div class="blur blur1"></div>
 <div class="blur blur2"></div>
 <div class="blur blur3"></div>
 
-<div class="hearts" id="hearts"></div>
+<div class="floating" id="floating"></div>
 
 <button class="music" onclick="toggleMusic()">🎵</button>
 
-<div class="hero">
+<section class="hero">
 
-<div class="card">
-
-<div class="shine"></div>
+<!-- TOP -->
 
 <div class="top">
 
 <div class="sun">🌅</div>
 
-<h1>Good Morning<br>Chweety ❤️</h1>
+<h1>
+Good Morning<br>
+Chweety ❤️
+</h1>
 
 <p class="subtitle">
 Every sunrise feels more beautiful because I have you.
@@ -396,14 +452,22 @@ You are my peace, happiness, comfort and my favorite person
 in this entire world. ✨
 </p>
 
+<div class="time-wrap">
 <div class="time-box">
+
 <div id="time"></div>
 <div id="date"></div>
+
+</div>
 </div>
 
 </div>
 
-<h2 class="gallery-title">
+<!-- GALLERY -->
+
+<div class="gallery-section">
+
+<h2 class="section-title">
 Our Beautiful Memories 💖
 </h2>
 
@@ -431,33 +495,39 @@ Our Beautiful Memories 💖
 
 </div>
 
-<div class="message" id="message">
+</div>
+
+<!-- MESSAGE -->
+
+<div class="message-box" id="message">
+
 Good morning to the most beautiful girl in my life ❤️<br><br>
 
-I hope your day is filled with smiles, peace, happiness,
-cute moments and lots of love. Seeing you happy is honestly
-my favorite thing in this world. 🌸✨
+I hope your day is filled with happiness, peace,
+cute moments, smiles and endless love.
+Seeing you smile honestly makes my entire world brighter. 🌸✨
+
 </div>
 
 <div class="center">
+
 <button class="btn" onclick="changeMessage()">
 More Love 💌
 </button>
-</div>
 
 </div>
 
-</div>
+</section>
 
 <!-- MUSIC -->
 
-<audio id="bgmusic" autoplay loop>
+<audio id="bgmusic" loop autoplay>
 <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8a4019d7f.mp3?filename=beautiful-piano-ambient-110624.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 
-/* LIVE CLOCK */
+/* CLOCK */
 
 function updateClock(){
 
@@ -485,23 +555,27 @@ function updateClock(){
 }
 
 setInterval(updateClock,1000);
+
 updateClock();
 
-/* FLOATING HEARTS */
+/* FLOATING ELEMENTS */
 
-const hearts = document.getElementById('hearts');
+const floating = document.getElementById('floating');
 
-for(let i=0;i<60;i++){
+const icons = ['❤️','💖','✨','💕','🌸'];
+
+for(let i=0;i<70;i++){
 
     const span = document.createElement('span');
 
     span.innerHTML =
-    ['❤️','💖','✨','🌸','💕'][Math.floor(Math.random()*5)];
+    icons[Math.floor(Math.random()*icons.length)];
 
-    span.style.left = Math.random()*100 + 'vw';
+    span.style.left =
+    Math.random()*100 + 'vw';
 
     span.style.fontSize =
-    (Math.random()*20 + 12) + 'px';
+    (Math.random()*22 + 14) + 'px';
 
     span.style.animationDuration =
     (Math.random()*10 + 8) + 's';
@@ -509,7 +583,7 @@ for(let i=0;i<60;i++){
     span.style.animationDelay =
     Math.random()*5 + 's';
 
-    hearts.appendChild(span);
+    floating.appendChild(span);
 }
 
 /* LOVE MESSAGES */
@@ -539,7 +613,7 @@ function changeMessage(){
     random;
 }
 
-/* MUSIC AUTOPLAY FIX */
+/* MUSIC */
 
 const music = document.getElementById('bgmusic');
 
