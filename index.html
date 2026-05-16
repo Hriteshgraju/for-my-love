@@ -1,480 +1,578 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Good Morning ✨</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Good Morning Chweety ❤️</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+<style>
 
-    body{
-      font-family:'Poppins',sans-serif;
-      overflow:hidden;
-      background:#050816;
-      color:white;
-      height:100vh;
-      width:100%;
-      position:relative;
-    }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-    /* Animated Background */
+body{
+    font-family:'Poppins',sans-serif;
+    overflow-x:hidden;
+    background:#060816;
+    color:white;
+}
 
-    .bg{
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(circle at top left, rgba(255,180,100,0.18), transparent 30%),
-        radial-gradient(circle at bottom right, rgba(255,100,180,0.18), transparent 30%),
-        linear-gradient(135deg,#050816,#0b1227,#101935);
-      z-index:-5;
-      animation:bgMove 10s ease-in-out infinite alternate;
-    }
+/* FULL SCREEN HERO */
 
-    @keyframes bgMove{
-      from{
+.hero{
+    min-height:100vh;
+    width:100%;
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 20px;
+}
+
+/* Animated Background */
+
+.bg{
+    position:absolute;
+    inset:0;
+    background:
+    radial-gradient(circle at top left, rgba(255,120,120,0.22), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(255,170,220,0.22), transparent 30%),
+    radial-gradient(circle at center, rgba(255,220,120,0.14), transparent 40%),
+    linear-gradient(135deg,#050816,#0f172a,#121f3d);
+    z-index:-5;
+    animation:bgzoom 12s infinite alternate ease-in-out;
+}
+
+@keyframes bgzoom{
+    from{
         transform:scale(1);
-      }
-      to{
+    }
+    to{
         transform:scale(1.08);
-      }
     }
+}
 
-    /* Floating Blur Orbs */
+/* Floating Blur */
 
-    .orb{
-      position:absolute;
-      border-radius:50%;
-      filter:blur(80px);
-      opacity:.5;
-      animation:float 10s infinite ease-in-out alternate;
-    }
+.blur{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(90px);
+    opacity:.45;
+    animation:float 10s infinite alternate ease-in-out;
+}
 
-    .orb1{
-      width:250px;
-      height:250px;
-      background:#ff7b7b;
-      top:-60px;
-      left:-60px;
-    }
+.blur1{
+    width:300px;
+    height:300px;
+    background:#ff5ea7;
+    top:-80px;
+    left:-80px;
+}
 
-    .orb2{
-      width:300px;
-      height:300px;
-      background:#7b9dff;
-      bottom:-80px;
-      right:-80px;
-      animation-delay:2s;
-    }
+.blur2{
+    width:350px;
+    height:350px;
+    background:#ffcf5e;
+    bottom:-100px;
+    right:-100px;
+    animation-delay:2s;
+}
 
-    .orb3{
-      width:180px;
-      height:180px;
-      background:#ffd86f;
-      top:45%;
-      left:55%;
-      animation-delay:4s;
-    }
+.blur3{
+    width:220px;
+    height:220px;
+    background:#6f8fff;
+    top:50%;
+    left:50%;
+    animation-delay:4s;
+}
 
-    @keyframes float{
-      from{
+@keyframes float{
+    from{
         transform:translateY(0px) translateX(0px);
-      }
-      to{
-        transform:translateY(-40px) translateX(30px);
-      }
     }
-
-    /* Particles */
-
-    .particles span{
-      position:absolute;
-      display:block;
-      width:4px;
-      height:4px;
-      border-radius:50%;
-      background:white;
-      opacity:.5;
-      animation:particles 15s linear infinite;
+    to{
+        transform:translateY(-40px) translateX(25px);
     }
+}
 
-    @keyframes particles{
-      0%{
+/* PARTICLES */
+
+.particles span{
+    position:absolute;
+    width:4px;
+    height:4px;
+    border-radius:50%;
+    background:white;
+    opacity:.5;
+    animation:particles linear infinite;
+}
+
+@keyframes particles{
+    0%{
         transform:translateY(100vh) scale(0);
         opacity:0;
-      }
-      50%{
-        opacity:.8;
-      }
-      100%{
-        transform:translateY(-10vh) scale(1.5);
+    }
+    50%{
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-20vh) scale(1.6);
         opacity:0;
-      }
     }
+}
 
-    /* Main Card */
+/* MAIN CARD */
 
-    .container{
-      height:100vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      padding:20px;
-      position:relative;
-    }
+.card{
+    width:min(1250px,95%);
+    backdrop-filter:blur(20px);
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:40px;
+    padding:60px;
+    position:relative;
+    overflow:hidden;
+    box-shadow:
+    0 20px 60px rgba(0,0,0,0.45),
+    inset 0 0 0 1px rgba(255,255,255,0.05);
+}
 
-    .glass-card{
-      width:min(900px,95%);
-      backdrop-filter:blur(20px);
-      background:rgba(255,255,255,0.08);
-      border:1px solid rgba(255,255,255,0.15);
-      border-radius:32px;
-      padding:50px;
-      text-align:center;
-      box-shadow:
-        0 8px 32px rgba(0,0,0,0.4),
-        inset 0 0 0 1px rgba(255,255,255,0.06);
-      position:relative;
-      overflow:hidden;
-    }
+/* SHINE EFFECT */
 
-    .shine{
-      position:absolute;
-      top:-150%;
-      left:-50%;
-      width:200%;
-      height:300%;
-      background:linear-gradient(
-        120deg,
-        transparent,
-        rgba(255,255,255,0.1),
-        transparent
-      );
-      transform:rotate(25deg);
-      animation:shine 7s infinite;
-    }
+.shine{
+    position:absolute;
+    top:-150%;
+    left:-50%;
+    width:200%;
+    height:300%;
+    background:linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.08),
+    transparent);
+    transform:rotate(25deg);
+    animation:shine 8s infinite;
+}
 
-    @keyframes shine{
-      0%{
+@keyframes shine{
+    0%{
         transform:translateX(-100%) rotate(25deg);
-      }
-      100%{
+    }
+    100%{
         transform:translateX(100%) rotate(25deg);
-      }
     }
+}
 
-    .emoji{
-      font-size:70px;
-      animation:sunrise 3s ease-in-out infinite alternate;
-      margin-bottom:15px;
+/* HEADER */
+
+.top{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.sun{
+    font-size:90px;
+    animation:sun 4s infinite alternate ease-in-out;
+}
+
+@keyframes sun{
+    from{
+        transform:translateY(0px) rotate(-6deg);
     }
-
-    @keyframes sunrise{
-      from{
-        transform:translateY(0px) rotate(-5deg);
-      }
-      to{
-        transform:translateY(-10px) rotate(5deg);
-      }
+    to{
+        transform:translateY(-10px) rotate(6deg);
     }
+}
 
-    h1{
-      font-size:clamp(2.7rem,6vw,5rem);
-      font-weight:700;
-      line-height:1.1;
-      background:linear-gradient(to right,#fff,#ffe08a,#ff9ecf);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      margin-bottom:20px;
-      letter-spacing:1px;
+h1{
+    font-size:clamp(3.5rem,8vw,7rem);
+    font-weight:800;
+    margin-top:10px;
+    background:linear-gradient(to right,#ffffff,#ffe083,#ff98c5);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    line-height:1.05;
+}
+
+.subtitle{
+    margin-top:20px;
+    font-size:1.2rem;
+    color:rgba(255,255,255,0.82);
+    max-width:850px;
+    margin-inline:auto;
+    line-height:2;
+}
+
+/* TIME */
+
+.time-box{
+    margin-top:35px;
+    display:inline-flex;
+    flex-direction:column;
+    padding:20px 40px;
+    border-radius:24px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.1);
+}
+
+#time{
+    font-size:2.3rem;
+    font-weight:700;
+}
+
+#date{
+    margin-top:5px;
+    opacity:.75;
+}
+
+/* GALLERY */
+
+.gallery-title{
+    margin-top:40px;
+    margin-bottom:25px;
+    text-align:center;
+    font-size:2rem;
+    font-weight:700;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:22px;
+}
+
+.photo{
+    position:relative;
+    overflow:hidden;
+    border-radius:26px;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.08);
+    padding:25px;
+    min-height:220px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    transition:.5s;
+}
+
+.photo:hover{
+    transform:translateY(-10px) scale(1.02);
+    box-shadow:0 15px 35px rgba(255,120,160,0.2);
+}
+
+.photo::before{
+    content:'❤️';
+    position:absolute;
+    top:18px;
+    right:18px;
+    font-size:20px;
+    opacity:.7;
+}
+
+.filename{
+    font-size:1rem;
+    line-height:1.8;
+    color:white;
+    word-break:break-word;
+}
+
+/* MESSAGE */
+
+.message{
+    margin-top:50px;
+    text-align:center;
+    font-size:1.15rem;
+    line-height:2;
+    color:rgba(255,255,255,0.88);
+    padding:30px;
+    border-radius:28px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+/* BUTTON */
+
+.center{
+    display:flex;
+    justify-content:center;
+}
+
+.btn{
+    margin-top:35px;
+    padding:16px 34px;
+    border:none;
+    border-radius:18px;
+    background:linear-gradient(135deg,#ff8a00,#ff4d88);
+    color:white;
+    font-size:1rem;
+    font-weight:600;
+    cursor:pointer;
+    transition:.4s;
+    box-shadow:0 10px 30px rgba(255,90,140,0.3);
+}
+
+.btn:hover{
+    transform:translateY(-5px) scale(1.03);
+}
+
+/* MUSIC BUTTON */
+
+.music{
+    position:fixed;
+    top:25px;
+    right:25px;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    border:none;
+    cursor:pointer;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    color:white;
+    font-size:1.3rem;
+    border:1px solid rgba(255,255,255,0.12);
+    z-index:100;
+    transition:.4s;
+}
+
+.music:hover{
+    transform:scale(1.1);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .card{
+        padding:35px 22px;
     }
 
     .subtitle{
-      font-size:1.15rem;
-      color:rgba(255,255,255,0.82);
-      max-width:700px;
-      margin:auto;
-      line-height:1.9;
-    }
-
-    .time-box{
-      margin-top:35px;
-      display:inline-flex;
-      flex-direction:column;
-      gap:5px;
-      padding:18px 35px;
-      border-radius:20px;
-      background:rgba(255,255,255,0.08);
-      border:1px solid rgba(255,255,255,0.12);
-    }
-
-    #time{
-      font-size:2rem;
-      font-weight:600;
-    }
-
-    #date{
-      font-size:0.95rem;
-      opacity:0.75;
-    }
-
-    .buttons{
-      margin-top:40px;
-      display:flex;
-      justify-content:center;
-      gap:20px;
-      flex-wrap:wrap;
-    }
-
-    .btn{
-      padding:14px 28px;
-      border:none;
-      border-radius:16px;
-      font-size:1rem;
-      font-weight:600;
-      cursor:pointer;
-      transition:.4s ease;
-      text-decoration:none;
-      color:white;
-      position:relative;
-      overflow:hidden;
-    }
-
-    .btn-primary{
-      background:linear-gradient(135deg,#ff8a00,#ff4d6d);
-      box-shadow:0 10px 25px rgba(255,100,120,0.35);
-    }
-
-    .btn-secondary{
-      background:rgba(255,255,255,0.08);
-      border:1px solid rgba(255,255,255,0.12);
-    }
-
-    .btn:hover{
-      transform:translateY(-4px) scale(1.03);
-    }
-
-    .quote{
-      margin-top:35px;
-      font-size:1rem;
-      opacity:.85;
-      font-style:italic;
-      min-height:30px;
-      transition:.4s ease;
-    }
-
-    /* Music Toggle */
-
-    .music-btn{
-      position:absolute;
-      top:20px;
-      right:20px;
-      width:52px;
-      height:52px;
-      border-radius:50%;
-      border:none;
-      background:rgba(255,255,255,0.08);
-      color:white;
-      font-size:1.2rem;
-      cursor:pointer;
-      backdrop-filter:blur(10px);
-      transition:.3s;
-      border:1px solid rgba(255,255,255,0.12);
-    }
-
-    .music-btn:hover{
-      transform:scale(1.1);
-    }
-
-    /* Responsive */
-
-    @media(max-width:768px){
-
-      .glass-card{
-        padding:35px 25px;
-      }
-
-      .subtitle{
         font-size:1rem;
-      }
-
-      #time{
-        font-size:1.6rem;
-      }
     }
-  </style>
+
+    .gallery{
+        grid-template-columns:1fr;
+    }
+
+    .gallery-title{
+        font-size:1.5rem;
+    }
+
+    .message{
+        font-size:1rem;
+    }
+}
+
+</style>
 </head>
 
 <body>
 
-  <div class="bg"></div>
+<div class="hero">
 
-  <div class="orb orb1"></div>
-  <div class="orb orb2"></div>
-  <div class="orb orb3"></div>
+<div class="bg"></div>
 
-  <div class="particles" id="particles"></div>
+<div class="blur blur1"></div>
+<div class="blur blur2"></div>
+<div class="blur blur3"></div>
 
-  <button class="music-btn" onclick="toggleMusic()">🎵</button>
+<div class="particles" id="particles"></div>
 
-  <div class="container">
+<button class="music" onclick="toggleMusic()">🎵</button>
 
-    <div class="glass-card">
+<div class="card">
 
-      <div class="shine"></div>
+<div class="shine"></div>
 
-      <div class="emoji">🌅</div>
+<div class="top">
 
-      <h1>Good Morning</h1>
+<div class="sun">🌅</div>
 
-      <p class="subtitle">
-        Every sunrise brings a new beginning, a fresh hope,
-        and another chance to create something beautiful today.
-      </p>
+<h1>Good Morning<br>Chweety ❤️</h1>
 
-      <div class="time-box">
-        <div id="time">07:00 AM</div>
-        <div id="date">Saturday, 16 May</div>
-      </div>
+<p class="subtitle">
+Every sunrise feels more beautiful because I have you in my life.
+May your day be filled with happiness, smiles, love, peace,
+and endless beautiful moments. ✨
+</p>
 
-      <div class="buttons">
-        <button class="btn btn-primary" onclick="changeQuote()">
-          Inspire Me ✨
-        </button>
+<div class="time-box">
+<div id="time"></div>
+<div id="date"></div>
+</div>
 
-        <a href="https://github.com" class="btn btn-secondary">
-          GitHub 🚀
-        </a>
-      </div>
+</div>
 
-      <div class="quote" id="quote">
-        “Rise above the storm and you will find the sunshine.”
-      </div>
+<h2 class="gallery-title">Our Beautiful Memories 💖</h2>
 
-    </div>
+<div class="gallery">
 
-  </div>
+<div class="photo">
+<div class="filename">
+20260403_152128.jpg
+</div>
+</div>
 
-  <!-- Optional Music -->
-  <audio id="bgMusic" loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8a4019d7f.mp3?filename=beautiful-piano-ambient-110624.mp3" type="audio/mpeg">
-  </audio>
+<div class="photo">
+<div class="filename">
+20260402_151301.jpg
+</div>
+</div>
 
-  <script>
+<div class="photo">
+<div class="filename">
+20260317_164344.jpg
+</div>
+</div>
 
-    // Live Clock
+<div class="photo">
+<div class="filename">
+IMG-20260314-WA0026.jpg
+</div>
+</div>
 
-    function updateTime(){
+<div class="photo">
+<div class="filename">
+IMG-20260314-WA0040.jpg
+</div>
+</div>
 
-      const now = new Date();
+</div>
 
-      let hours = now.getHours();
-      let minutes = now.getMinutes();
+<div class="message">
+Good morning to the most beautiful person in my world. ❤️<br><br>
 
-      const ampm = hours >= 12 ? 'PM' : 'AM';
+No matter how busy life gets, every moment with you
+feels magical and peaceful. I hope today brings you
+everything your heart wishes for. Keep smiling because
+your smile is my favorite sunrise. 🌸✨
+</div>
 
-      hours = hours % 12;
-      hours = hours ? hours : 12;
+<div class="center">
+<button class="btn" onclick="changeMessage()">
+Send More Love 💌
+</button>
+</div>
 
-      minutes = minutes < 10 ? '0' + minutes : minutes;
+</div>
+</div>
 
-      document.getElementById('time').innerHTML =
-        `${hours}:${minutes} ${ampm}`;
+<!-- MUSIC -->
 
-      document.getElementById('date').innerHTML =
-        now.toLocaleDateString('en-US',{
-          weekday:'long',
-          day:'numeric',
-          month:'long'
-        });
-    }
+<audio id="musicPlayer" loop>
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8a4019d7f.mp3?filename=beautiful-piano-ambient-110624.mp3" type="audio/mpeg">
+</audio>
 
-    setInterval(updateTime,1000);
-    updateTime();
+<script>
 
-    // Quotes
+/* LIVE TIME */
 
-    const quotes = [
+function updateClock(){
 
-      "Wake up with determination. Sleep with satisfaction.",
+    const now = new Date();
 
-      "Today is another opportunity to shine brighter.",
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
 
-      "A beautiful day begins with a beautiful mindset.",
+    const ampm = hours >= 12 ? 'PM' : 'AM';
 
-      "Dream big, start small, act now.",
+    hours = hours % 12;
+    hours = hours ? hours : 12;
 
-      "The sun reminds us that we can rise again every day.",
+    minutes = minutes < 10 ? '0' + minutes : minutes;
 
-      "Your future is created by what you do today.",
+    document.getElementById('time').innerHTML =
+    `${hours}:${minutes} ${ampm}`;
 
-      "Every morning is a fresh page in your story."
+    document.getElementById('date').innerHTML =
+    now.toLocaleDateString('en-US',{
+        weekday:'long',
+        month:'long',
+        day:'numeric'
+    });
+}
 
-    ];
+setInterval(updateClock,1000);
+updateClock();
 
-    function changeQuote(){
+/* FLOATING PARTICLES */
 
-      const quote =
-        quotes[Math.floor(Math.random() * quotes.length)];
+const particles = document.getElementById('particles');
 
-      document.getElementById('quote').style.opacity = 0;
+for(let i=0;i<55;i++){
 
-      setTimeout(() => {
+    const span = document.createElement('span');
 
-        document.getElementById('quote').innerHTML =
-          `“${quote}”`;
+    span.style.left = Math.random()*100 + 'vw';
 
-        document.getElementById('quote').style.opacity = 1;
+    span.style.animationDuration =
+    (Math.random()*10 + 8) + 's';
 
-      },300);
-    }
+    span.style.animationDelay =
+    Math.random()*6 + 's';
 
-    // Particles
+    span.style.width =
+    span.style.height =
+    (Math.random()*4 + 2) + 'px';
 
-    const particles = document.getElementById('particles');
+    particles.appendChild(span);
+}
 
-    for(let i=0;i<45;i++){
+/* LOVE MESSAGES */
 
-      const span = document.createElement('span');
+const messages = [
 
-      span.style.left = Math.random()*100 + 'vw';
-      span.style.animationDuration =
-        (Math.random()*10 + 8) + 's';
+"Every day with you is my favorite day ❤️",
 
-      span.style.animationDelay =
-        Math.random()*5 + 's';
+"You are the most beautiful part of my life ✨",
 
-      span.style.width =
-        span.style.height =
-        Math.random()*4 + 2 + 'px';
+"Your smile makes every morning brighter 🌸",
 
-      particles.appendChild(span);
-    }
+"You are my peace, happiness and forever 💖",
 
-    // Music
+"Life feels magical because of you 🌹",
 
-    const music = document.getElementById('bgMusic');
+"I fall in love with you more every single day ❤️"
 
-    let isPlaying = false;
+];
 
-    function toggleMusic(){
+function changeMessage(){
 
-      if(isPlaying){
+    const msg =
+    messages[Math.floor(Math.random()*messages.length)];
+
+    document.querySelector('.message').innerHTML =
+    msg;
+}
+
+/* MUSIC */
+
+const music = document.getElementById('musicPlayer');
+
+let playing = false;
+
+function toggleMusic(){
+
+    if(playing){
         music.pause();
-        isPlaying = false;
-      }else{
+        playing = false;
+    }else{
         music.play();
-        isPlaying = true;
-      }
+        playing = true;
     }
+}
 
-  </script>
+</script>
 
 </body>
 </html>
