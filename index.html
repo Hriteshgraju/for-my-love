@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Good Morning Chweety ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -18,38 +19,32 @@
 body{
     font-family:'Poppins',sans-serif;
     overflow-x:hidden;
-    background:#060816;
+    background:#050816;
     color:white;
 }
 
-/* FULL SCREEN HERO */
+/* BACKGROUND */
 
 .hero{
     min-height:100vh;
-    width:100%;
     position:relative;
     overflow:hidden;
-    display:flex;
-    justify-content:center;
-    align-items:center;
     padding:40px 20px;
 }
 
-/* Animated Background */
-
 .bg{
-    position:absolute;
+    position:fixed;
     inset:0;
+    z-index:-10;
     background:
-    radial-gradient(circle at top left, rgba(255,120,120,0.22), transparent 30%),
-    radial-gradient(circle at bottom right, rgba(255,170,220,0.22), transparent 30%),
-    radial-gradient(circle at center, rgba(255,220,120,0.14), transparent 40%),
-    linear-gradient(135deg,#050816,#0f172a,#121f3d);
-    z-index:-5;
-    animation:bgzoom 12s infinite alternate ease-in-out;
+    radial-gradient(circle at top left, rgba(255,120,160,0.25), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(255,220,120,0.18), transparent 30%),
+    radial-gradient(circle at center, rgba(120,140,255,0.18), transparent 40%),
+    linear-gradient(135deg,#050816,#101935,#0d1428);
+    animation:bgmove 12s infinite alternate ease-in-out;
 }
 
-@keyframes bgzoom{
+@keyframes bgmove{
     from{
         transform:scale(1);
     }
@@ -58,20 +53,20 @@ body{
     }
 }
 
-/* Floating Blur */
+/* FLOATING LIGHTS */
 
 .blur{
     position:absolute;
     border-radius:50%;
     filter:blur(90px);
-    opacity:.45;
-    animation:float 10s infinite alternate ease-in-out;
+    opacity:.5;
+    animation:float 12s infinite alternate ease-in-out;
 }
 
 .blur1{
     width:300px;
     height:300px;
-    background:#ff5ea7;
+    background:#ff4da6;
     top:-80px;
     left:-80px;
 }
@@ -79,19 +74,17 @@ body{
 .blur2{
     width:350px;
     height:350px;
-    background:#ffcf5e;
+    background:#ffcc66;
     bottom:-100px;
     right:-100px;
-    animation-delay:2s;
 }
 
 .blur3{
-    width:220px;
-    height:220px;
-    background:#6f8fff;
-    top:50%;
-    left:50%;
-    animation-delay:4s;
+    width:250px;
+    height:250px;
+    background:#7b8dff;
+    top:40%;
+    left:45%;
 }
 
 @keyframes float{
@@ -99,32 +92,29 @@ body{
         transform:translateY(0px) translateX(0px);
     }
     to{
-        transform:translateY(-40px) translateX(25px);
+        transform:translateY(-50px) translateX(30px);
     }
 }
 
-/* PARTICLES */
+/* FLOATING HEARTS */
 
-.particles span{
+.hearts span{
     position:absolute;
-    width:4px;
-    height:4px;
-    border-radius:50%;
-    background:white;
-    opacity:.5;
-    animation:particles linear infinite;
+    color:rgba(255,255,255,0.5);
+    animation:hearts linear infinite;
+    user-select:none;
 }
 
-@keyframes particles{
+@keyframes hearts{
     0%{
         transform:translateY(100vh) scale(0);
         opacity:0;
     }
-    50%{
+    20%{
         opacity:1;
     }
     100%{
-        transform:translateY(-20vh) scale(1.6);
+        transform:translateY(-20vh) scale(1.5);
         opacity:0;
     }
 }
@@ -132,12 +122,14 @@ body{
 /* MAIN CARD */
 
 .card{
-    width:min(1250px,95%);
-    backdrop-filter:blur(20px);
+    width:min(1350px,96%);
+    margin:auto;
+    margin-top:40px;
+    padding:60px;
+    border-radius:40px;
     background:rgba(255,255,255,0.08);
     border:1px solid rgba(255,255,255,0.12);
-    border-radius:40px;
-    padding:60px;
+    backdrop-filter:blur(22px);
     position:relative;
     overflow:hidden;
     box-shadow:
@@ -145,7 +137,7 @@ body{
     inset 0 0 0 1px rgba(255,255,255,0.05);
 }
 
-/* SHINE EFFECT */
+/* SHINE */
 
 .shine{
     position:absolute;
@@ -157,7 +149,8 @@ body{
     120deg,
     transparent,
     rgba(255,255,255,0.08),
-    transparent);
+    transparent
+    );
     transform:rotate(25deg);
     animation:shine 8s infinite;
 }
@@ -175,40 +168,39 @@ body{
 
 .top{
     text-align:center;
-    margin-bottom:50px;
 }
 
 .sun{
-    font-size:90px;
+    font-size:100px;
     animation:sun 4s infinite alternate ease-in-out;
 }
 
 @keyframes sun{
     from{
-        transform:translateY(0px) rotate(-6deg);
+        transform:translateY(0px) rotate(-5deg);
     }
     to{
-        transform:translateY(-10px) rotate(6deg);
+        transform:translateY(-12px) rotate(5deg);
     }
 }
 
 h1{
-    font-size:clamp(3.5rem,8vw,7rem);
-    font-weight:800;
     margin-top:10px;
-    background:linear-gradient(to right,#ffffff,#ffe083,#ff98c5);
+    font-size:clamp(4rem,8vw,8rem);
+    font-weight:800;
+    line-height:1;
+    background:linear-gradient(to right,#fff,#ffe38a,#ff9dc8);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
-    line-height:1.05;
 }
 
 .subtitle{
-    margin-top:20px;
-    font-size:1.2rem;
-    color:rgba(255,255,255,0.82);
+    margin-top:25px;
+    font-size:1.25rem;
+    line-height:2;
     max-width:850px;
     margin-inline:auto;
-    line-height:2;
+    color:rgba(255,255,255,0.85);
 }
 
 /* TIME */
@@ -217,86 +209,84 @@ h1{
     margin-top:35px;
     display:inline-flex;
     flex-direction:column;
-    padding:20px 40px;
-    border-radius:24px;
+    padding:22px 45px;
+    border-radius:25px;
     background:rgba(255,255,255,0.08);
     border:1px solid rgba(255,255,255,0.1);
 }
 
 #time{
-    font-size:2.3rem;
+    font-size:2.5rem;
     font-weight:700;
 }
 
 #date{
-    margin-top:5px;
+    margin-top:6px;
     opacity:.75;
 }
 
 /* GALLERY */
 
 .gallery-title{
-    margin-top:40px;
-    margin-bottom:25px;
+    margin-top:60px;
     text-align:center;
-    font-size:2rem;
+    font-size:2.3rem;
     font-weight:700;
 }
 
 .gallery{
+    margin-top:35px;
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:22px;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:28px;
 }
 
 .photo{
     position:relative;
     overflow:hidden;
-    border-radius:26px;
-    background:rgba(255,255,255,0.06);
+    border-radius:30px;
+    height:400px;
+    background:#111;
     border:1px solid rgba(255,255,255,0.08);
-    padding:25px;
-    min-height:220px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
     transition:.5s;
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:1s;
 }
 
 .photo:hover{
     transform:translateY(-10px) scale(1.02);
-    box-shadow:0 15px 35px rgba(255,120,160,0.2);
+    box-shadow:0 20px 40px rgba(255,120,170,0.25);
 }
 
-.photo::before{
+.photo:hover img{
+    transform:scale(1.08);
+}
+
+.photo::after{
     content:'❤️';
     position:absolute;
     top:18px;
     right:18px;
-    font-size:20px;
-    opacity:.7;
-}
-
-.filename{
-    font-size:1rem;
-    line-height:1.8;
-    color:white;
-    word-break:break-word;
+    font-size:24px;
 }
 
 /* MESSAGE */
 
 .message{
-    margin-top:50px;
+    margin-top:60px;
+    padding:35px;
+    border-radius:30px;
     text-align:center;
-    font-size:1.15rem;
     line-height:2;
-    color:rgba(255,255,255,0.88);
-    padding:30px;
-    border-radius:28px;
+    font-size:1.2rem;
     background:rgba(255,255,255,0.05);
     border:1px solid rgba(255,255,255,0.08);
+    color:rgba(255,255,255,0.9);
 }
 
 /* BUTTON */
@@ -308,16 +298,16 @@ h1{
 
 .btn{
     margin-top:35px;
-    padding:16px 34px;
+    padding:18px 38px;
     border:none;
-    border-radius:18px;
+    border-radius:20px;
     background:linear-gradient(135deg,#ff8a00,#ff4d88);
     color:white;
     font-size:1rem;
     font-weight:600;
     cursor:pointer;
     transition:.4s;
-    box-shadow:0 10px 30px rgba(255,90,140,0.3);
+    box-shadow:0 10px 30px rgba(255,100,160,0.3);
 }
 
 .btn:hover{
@@ -328,19 +318,19 @@ h1{
 
 .music{
     position:fixed;
-    top:25px;
-    right:25px;
-    width:58px;
-    height:58px;
+    top:20px;
+    right:20px;
+    width:60px;
+    height:60px;
     border-radius:50%;
     border:none;
     cursor:pointer;
     background:rgba(255,255,255,0.08);
     backdrop-filter:blur(10px);
     color:white;
-    font-size:1.3rem;
-    border:1px solid rgba(255,255,255,0.12);
-    z-index:100;
+    font-size:1.4rem;
+    border:1px solid rgba(255,255,255,0.1);
+    z-index:999;
     transition:.4s;
 }
 
@@ -348,28 +338,28 @@ h1{
     transform:scale(1.1);
 }
 
-/* RESPONSIVE */
+/* MOBILE */
 
 @media(max-width:768px){
 
     .card{
-        padding:35px 22px;
+        padding:35px 20px;
+    }
+
+    .photo{
+        height:320px;
     }
 
     .subtitle{
         font-size:1rem;
     }
 
-    .gallery{
-        grid-template-columns:1fr;
+    .message{
+        font-size:1rem;
     }
 
     .gallery-title{
-        font-size:1.5rem;
-    }
-
-    .message{
-        font-size:1rem;
+        font-size:1.7rem;
     }
 }
 
@@ -378,17 +368,17 @@ h1{
 
 <body>
 
-<div class="hero">
-
 <div class="bg"></div>
 
 <div class="blur blur1"></div>
 <div class="blur blur2"></div>
 <div class="blur blur3"></div>
 
-<div class="particles" id="particles"></div>
+<div class="hearts" id="hearts"></div>
 
 <button class="music" onclick="toggleMusic()">🎵</button>
+
+<div class="hero">
 
 <div class="card">
 
@@ -401,9 +391,9 @@ h1{
 <h1>Good Morning<br>Chweety ❤️</h1>
 
 <p class="subtitle">
-Every sunrise feels more beautiful because I have you in my life.
-May your day be filled with happiness, smiles, love, peace,
-and endless beautiful moments. ✨
+Every sunrise feels more beautiful because I have you.
+You are my peace, happiness, comfort and my favorite person
+in this entire world. ✨
 </p>
 
 <div class="time-box">
@@ -413,69 +403,61 @@ and endless beautiful moments. ✨
 
 </div>
 
-<h2 class="gallery-title">Our Beautiful Memories 💖</h2>
+<h2 class="gallery-title">
+Our Beautiful Memories 💖
+</h2>
 
 <div class="gallery">
 
 <div class="photo">
-<div class="filename">
-20260403_152128.jpg
-</div>
+<img src="20260403_152128.jpg">
 </div>
 
 <div class="photo">
-<div class="filename">
-20260402_151301.jpg
-</div>
+<img src="20260402_151301.jpg">
 </div>
 
 <div class="photo">
-<div class="filename">
-20260317_164344.jpg
-</div>
+<img src="20260317_164344.jpg">
 </div>
 
 <div class="photo">
-<div class="filename">
-IMG-20260314-WA0026.jpg
-</div>
+<img src="IMG-20260314-WA0026.jpg">
 </div>
 
 <div class="photo">
-<div class="filename">
-IMG-20260314-WA0040.jpg
-</div>
+<img src="IMG-20260314-WA0040.jpg">
 </div>
 
 </div>
 
-<div class="message">
-Good morning to the most beautiful person in my world. ❤️<br><br>
+<div class="message" id="message">
+Good morning to the most beautiful girl in my life ❤️<br><br>
 
-No matter how busy life gets, every moment with you
-feels magical and peaceful. I hope today brings you
-everything your heart wishes for. Keep smiling because
-your smile is my favorite sunrise. 🌸✨
+I hope your day is filled with smiles, peace, happiness,
+cute moments and lots of love. Seeing you happy is honestly
+my favorite thing in this world. 🌸✨
 </div>
 
 <div class="center">
 <button class="btn" onclick="changeMessage()">
-Send More Love 💌
+More Love 💌
 </button>
 </div>
 
 </div>
+
 </div>
 
 <!-- MUSIC -->
 
-<audio id="musicPlayer" loop>
+<audio id="bgmusic" autoplay loop>
 <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8a4019d7f.mp3?filename=beautiful-piano-ambient-110624.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 
-/* LIVE TIME */
+/* LIVE CLOCK */
 
 function updateClock(){
 
@@ -505,70 +487,72 @@ function updateClock(){
 setInterval(updateClock,1000);
 updateClock();
 
-/* FLOATING PARTICLES */
+/* FLOATING HEARTS */
 
-const particles = document.getElementById('particles');
+const hearts = document.getElementById('hearts');
 
-for(let i=0;i<55;i++){
+for(let i=0;i<60;i++){
 
     const span = document.createElement('span');
 
+    span.innerHTML =
+    ['❤️','💖','✨','🌸','💕'][Math.floor(Math.random()*5)];
+
     span.style.left = Math.random()*100 + 'vw';
+
+    span.style.fontSize =
+    (Math.random()*20 + 12) + 'px';
 
     span.style.animationDuration =
     (Math.random()*10 + 8) + 's';
 
     span.style.animationDelay =
-    Math.random()*6 + 's';
+    Math.random()*5 + 's';
 
-    span.style.width =
-    span.style.height =
-    (Math.random()*4 + 2) + 'px';
-
-    particles.appendChild(span);
+    hearts.appendChild(span);
 }
 
 /* LOVE MESSAGES */
 
 const messages = [
 
-"Every day with you is my favorite day ❤️",
+"Every moment with you feels magical ❤️",
 
-"You are the most beautiful part of my life ✨",
+"Your smile is my favorite sunrise 🌅",
 
-"Your smile makes every morning brighter 🌸",
+"You make my life beautiful ✨",
 
-"You are my peace, happiness and forever 💖",
+"I fall in love with you more every day 💖",
 
-"Life feels magical because of you 🌹",
+"You are my happiness and peace 🌸",
 
-"I fall in love with you more every single day ❤️"
+"My world feels complete with you ❤️"
 
 ];
 
 function changeMessage(){
 
-    const msg =
+    const random =
     messages[Math.floor(Math.random()*messages.length)];
 
-    document.querySelector('.message').innerHTML =
-    msg;
+    document.getElementById('message').innerHTML =
+    random;
 }
 
-/* MUSIC */
+/* MUSIC AUTOPLAY FIX */
 
-const music = document.getElementById('musicPlayer');
+const music = document.getElementById('bgmusic');
 
-let playing = false;
+document.body.addEventListener('click', () => {
+    music.play();
+}, { once:true });
 
 function toggleMusic(){
 
-    if(playing){
-        music.pause();
-        playing = false;
-    }else{
+    if(music.paused){
         music.play();
-        playing = true;
+    }else{
+        music.pause();
     }
 }
 
