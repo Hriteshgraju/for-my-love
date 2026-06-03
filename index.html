@@ -1,636 +1,1079 @@
-<!DOCTYPE html>
+
+html_content = '''<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Good Morning Chweety ❤️</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:'Poppins',sans-serif;
-    background:#050816;
-    overflow-x:hidden;
-    color:white;
-}
-
-/* FULL BACKGROUND */
-
-.background{
-    position:fixed;
-    inset:0;
-    z-index:-10;
-    overflow:hidden;
-
-    background:
-    radial-gradient(circle at top left, rgba(255,120,180,0.25), transparent 25%),
-    radial-gradient(circle at bottom right, rgba(255,200,120,0.18), transparent 25%),
-    radial-gradient(circle at center, rgba(120,150,255,0.18), transparent 35%),
-    linear-gradient(135deg,#040816,#0b1327,#121f3d);
-
-    animation:bgzoom 14s infinite alternate ease-in-out;
-}
-
-@keyframes bgzoom{
-    from{
-        transform:scale(1);
-    }
-    to{
-        transform:scale(1.08);
-    }
-}
-
-/* BLUR LIGHTS */
-
-.blur{
-    position:absolute;
-    border-radius:50%;
-    filter:blur(100px);
-    opacity:.5;
-    animation:float 12s infinite alternate ease-in-out;
-}
-
-.blur1{
-    width:350px;
-    height:350px;
-    background:#ff5ea8;
-    top:-120px;
-    left:-120px;
-}
-
-.blur2{
-    width:400px;
-    height:400px;
-    background:#ffd166;
-    bottom:-150px;
-    right:-150px;
-}
-
-.blur3{
-    width:280px;
-    height:280px;
-    background:#6e8dff;
-    top:40%;
-    left:45%;
-}
-
-@keyframes float{
-    from{
-        transform:translateY(0px) translateX(0px);
-    }
-    to{
-        transform:translateY(-60px) translateX(40px);
-    }
-}
-
-/* FLOATING ELEMENTS */
-
-.floating span{
-    position:absolute;
-    animation:fly linear infinite;
-    opacity:.7;
-    user-select:none;
-}
-
-@keyframes fly{
-    0%{
-        transform:translateY(110vh) scale(0);
-        opacity:0;
-    }
-
-    20%{
-        opacity:1;
-    }
-
-    100%{
-        transform:translateY(-20vh) scale(1.6);
-        opacity:0;
-    }
-}
-
-/* MAIN SECTION */
-
-.hero{
-    width:100%;
-    min-height:100vh;
-    padding:40px 6vw 80px;
-    position:relative;
-}
-
-/* TOP */
-
-.top{
-    width:100%;
-    text-align:center;
-    padding-top:30px;
-}
-
-.sun{
-    font-size:120px;
-    animation:sun 4s infinite alternate ease-in-out;
-    filter:drop-shadow(0 0 20px rgba(255,200,120,0.4));
-}
-
-@keyframes sun{
-    from{
-        transform:translateY(0px) rotate(-5deg);
-    }
-    to{
-        transform:translateY(-12px) rotate(5deg);
-    }
-}
-
-h1{
-    margin-top:10px;
-    font-size:clamp(4rem,11vw,9rem);
-    line-height:0.95;
-    font-weight:900;
-    letter-spacing:-3px;
-
-    background:linear-gradient(
-    to right,
-    #ffffff,
-    #ffe08a,
-    #ffb3d1,
-    #ffffff
-    );
-
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-
-    text-shadow:0 0 30px rgba(255,255,255,0.08);
-}
-
-.subtitle{
-    margin:35px auto 0;
-    max-width:900px;
-    font-size:1.3rem;
-    line-height:2;
-    color:rgba(255,255,255,0.85);
-}
-
-/* GLASS TIME */
-
-.time-wrap{
-    margin-top:40px;
-    display:flex;
-    justify-content:center;
-}
-
-.time-box{
-    padding:22px 45px;
-    border-radius:25px;
-    background:rgba(255,255,255,0.08);
-    border:1px solid rgba(255,255,255,0.12);
-    backdrop-filter:blur(20px);
-    text-align:center;
-    box-shadow:0 10px 30px rgba(0,0,0,0.2);
-}
-
-#time{
-    font-size:2.5rem;
-    font-weight:700;
-}
-
-#date{
-    margin-top:6px;
-    opacity:.75;
-}
-
-/* GALLERY */
-
-.gallery-section{
-    margin-top:100px;
-}
-
-.section-title{
-    text-align:center;
-    font-size:3rem;
-    font-weight:800;
-    margin-bottom:50px;
-}
-
-.gallery{
-    width:100%;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:35px;
-}
-
-/* IMAGE CARDS */
-
-.photo{
-    position:relative;
-    overflow:hidden;
-    border-radius:35px;
-    height:500px;
-
-    background:rgba(255,255,255,0.06);
-    border:1px solid rgba(255,255,255,0.1);
-
-    box-shadow:
-    0 20px 40px rgba(0,0,0,0.35),
-    inset 0 0 0 1px rgba(255,255,255,0.04);
-
-    transition:.6s;
-}
-
-.photo:hover{
-    transform:translateY(-12px) scale(1.02);
-    box-shadow:
-    0 25px 50px rgba(255,100,170,0.2),
-    inset 0 0 0 1px rgba(255,255,255,0.04);
-}
-
-.photo img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transition:1.2s;
-}
-
-.photo:hover img{
-    transform:scale(1.08);
-}
-
-.photo::after{
-    content:'❤️';
-    position:absolute;
-    top:20px;
-    right:20px;
-    font-size:28px;
-    z-index:2;
-}
-
-/* LOVE MESSAGE */
-
-.message-box{
-    margin-top:100px;
-
-    padding:50px;
-
-    border-radius:35px;
-
-    background:rgba(255,255,255,0.06);
-
-    border:1px solid rgba(255,255,255,0.1);
-
-    backdrop-filter:blur(20px);
-
-    text-align:center;
-
-    line-height:2.2;
-
-    font-size:1.3rem;
-
-    color:rgba(255,255,255,0.9);
-
-    box-shadow:0 20px 40px rgba(0,0,0,0.25);
-}
-
-/* BUTTON */
-
-.center{
-    display:flex;
-    justify-content:center;
-}
-
-.btn{
-    margin-top:40px;
-
-    padding:18px 40px;
-
-    border:none;
-
-    border-radius:20px;
-
-    font-size:1rem;
-
-    font-weight:700;
-
-    color:white;
-
-    cursor:pointer;
-
-    background:linear-gradient(
-    135deg,
-    #ff8a00,
-    #ff4d88
-    );
-
-    box-shadow:0 10px 30px rgba(255,100,150,0.3);
-
-    transition:.4s;
-}
-
-.btn:hover{
-    transform:translateY(-6px) scale(1.04);
-}
-
-/* MUSIC BUTTON */
-
-.music{
-    position:fixed;
-
-    top:20px;
-    right:20px;
-
-    width:60px;
-    height:60px;
-
-    border:none;
-
-    border-radius:50%;
-
-    background:rgba(255,255,255,0.08);
-
-    border:1px solid rgba(255,255,255,0.12);
-
-    backdrop-filter:blur(20px);
-
-    color:white;
-
-    font-size:1.4rem;
-
-    cursor:pointer;
-
-    z-index:999;
-
-    transition:.4s;
-}
-
-.music:hover{
-    transform:scale(1.1);
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-    .hero{
-        padding:25px 5vw 60px;
-    }
-
-    h1{
-        font-size:4.7rem;
-        letter-spacing:-2px;
-    }
-
-    .subtitle{
-        font-size:1rem;
-        line-height:1.9;
-    }
-
-    .section-title{
-        font-size:2rem;
-    }
-
-    .gallery{
-        grid-template-columns:1fr;
-        gap:25px;
-    }
-
-    .photo{
-        height:420px;
-    }
-
-    .message-box{
-        padding:30px 22px;
-        font-size:1rem;
-        line-height:2;
-    }
-
-    #time{
-        font-size:2rem;
-    }
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Birthday Adventure ✨</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff6b9d;
+            --primary-light: #ffb3c6;
+            --secondary: #c77dff;
+            --accent: #ff9e00;
+            --dark: #1a1a2e;
+            --darker: #0f0f1a;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --glass: rgba(255, 255, 255, 0.08);
+            --locked: rgba(255, 255, 255, 0.03);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--darker);
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 50%, #16213e 100%);
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background: radial-gradient(circle, rgba(255, 107, 157, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle, rgba(199, 125, 255, 0.1) 30%, transparent 60%);
+            animation: bgFloat 20s ease-in-out infinite;
+        }
+
+        @keyframes bgFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(2deg); }
+            66% { transform: translate(-20px, 20px) rotate(-1deg); }
+        }
+
+        /* Floating Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: floatUp linear infinite;
+        }
+
+        .particle:nth-child(odd) {
+            background: var(--secondary);
+            width: 4px;
+            height: 4px;
+        }
+
+        .particle:nth-child(3n) {
+            background: var(--accent);
+            width: 8px;
+            height: 8px;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .birthday-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            animation: pulse 2s ease-in-out infinite;
+            box-shadow: 0 0 30px rgba(255, 107, 157, 0.4);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 30px rgba(255, 107, 157, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 0 50px rgba(255, 107, 157, 0.6); }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff 0%, var(--primary-light) 50%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        /* Current Time Display */
+        .time-display {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px 24px;
+            border-radius: 50px;
+            margin-top: 30px;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .time-display .live-dot {
+            width: 8px;
+            height: 8px;
+            background: #00ff88;
+            border-radius: 50%;
+            animation: blink 1.5s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* Timeline Container */
+        .timeline-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Timeline Line */
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, 
+                var(--primary) 0%, 
+                var(--secondary) 50%, 
+                rgba(255, 255, 255, 0.1) 100%);
+            border-radius: 3px;
+        }
+
+        .timeline-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--progress, 0%);
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            border-radius: 3px;
+            transition: height 0.5s ease;
+        }
+
+        /* Timeline Item */
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(5) { animation-delay: 0.5s; }
+        .timeline-item:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--dark);
+            border: 3px solid var(--primary);
+            z-index: 2;
+            top: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item.completed::before {
+            background: var(--primary);
+            box-shadow: 0 0 20px var(--primary);
+        }
+
+        .timeline-item.active::before {
+            background: var(--accent);
+            border-color: var(--accent);
+            box-shadow: 0 0 25px var(--accent);
+            animation: nodePulse 2s ease-in-out infinite;
+        }
+
+        .timeline-item.locked::before {
+            border-color: rgba(255, 255, 255, 0.2);
+            background: var(--dark);
+        }
+
+        @keyframes nodePulse {
+            0%, 100% { box-shadow: 0 0 25px var(--accent); }
+            50% { box-shadow: 0 0 40px var(--accent), 0 0 60px rgba(255, 158, 0, 0.3); }
+        }
+
+        /* Card */
+        .timeline-card {
+            width: calc(50% - 40px);
+            margin-left: auto;
+            margin-right: 0;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 28px;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+
+        .timeline-item:nth-child(even) .timeline-card {
+            margin-left: 0;
+            margin-right: auto;
+        }
+
+        .timeline-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .timeline-card:hover::before {
+            opacity: 1;
+        }
+
+        .timeline-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Time Badge */
+        .time-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 107, 157, 0.15);
+            border: 1px solid rgba(255, 107, 157, 0.3);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-light);
+            margin-bottom: 16px;
+        }
+
+        .time-badge svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        /* Card Title */
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .card-subtitle {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 16px;
+        }
+
+        /* Reveal Button */
+        .reveal-btn {
+            width: 100%;
+            padding: 14px 24px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            border-radius: 12px;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .reveal-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .reveal-btn:hover::before {
+            left: 100%;
+        }
+
+        .reveal-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
+        }
+
+        .reveal-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Locked State */
+        .locked-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--locked);
+            backdrop-filter: blur(5px);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            z-index: 10;
+            transition: all 0.5s ease;
+        }
+
+        .locked-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .lock-icon {
+            font-size: 2.5rem;
+            animation: lockShake 3s ease-in-out infinite;
+        }
+
+        @keyframes lockShake {
+            0%, 100% { transform: rotate(0deg); }
+            5% { transform: rotate(-10deg); }
+            10% { transform: rotate(10deg); }
+            15% { transform: rotate(-5deg); }
+            20% { transform: rotate(0deg); }
+        }
+
+        .locked-text {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.4);
+            font-weight: 500;
+        }
+
+        .countdown-timer {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Revealed Content */
+        .revealed-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+            opacity: 0;
+        }
+
+        .revealed-content.show {
+            max-height: 500px;
+            opacity: 1;
+            margin-top: 20px;
+        }
+
+        .content-inner {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .content-inner p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .content-inner .highlight {
+            color: var(--primary-light);
+            font-weight: 600;
+        }
+
+        .emoji-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 16px;
+            font-size: 1.5rem;
+        }
+
+        /* Confetti Canvas */
+        #confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .timeline-line {
+                left: 20px;
+            }
+            
+            .timeline-item::before {
+                left: 20px;
+                transform: translateX(-50%);
+            }
+            
+            .timeline-card {
+                width: calc(100% - 50px);
+                margin-left: 50px !important;
+                margin-right: 0 !important;
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--darker);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        /* Heart Animation */
+        .floating-heart {
+            position: fixed;
+            font-size: 1.5rem;
+            pointer-events: none;
+            z-index: 5;
+            animation: heartFloat 4s ease-in-out forwards;
+        }
+
+        @keyframes heartFloat {
+            0% { transform: translateY(0) scale(0); opacity: 0; }
+            20% { transform: translateY(-20px) scale(1); opacity: 1; }
+            100% { transform: translateY(-200px) scale(0.5); opacity: 0; }
+        }
+
+        /* Surprise Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .modal-overlay.show {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, var(--dark), #2d1b4e);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            transform: scale(0.8);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-overlay.show .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-emoji {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: block;
+            animation: bounce 1s ease infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .modal-text {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .modal-close {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            padding: 12px 32px;
+            border-radius: 50px;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .modal-close:hover {
+            transform: scale(1.05);
+        }
+
+        /* Progress Ring for Active Item */
+        .progress-ring {
+            position: absolute;
+            left: 50%;
+            top: 30px;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            z-index: 1;
+        }
+
+        .progress-ring circle {
+            fill: none;
+            stroke-width: 3;
+        }
+
+        .progress-ring .bg {
+            stroke: rgba(255, 255, 255, 0.1);
+        }
+
+        .progress-ring .progress {
+            stroke: var(--accent);
+            stroke-linecap: round;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+            transition: stroke-dashoffset 1s ease;
+        }
+    </style>
 </head>
-
 <body>
-
-<div class="background"></div>
-
-<div class="blur blur1"></div>
-<div class="blur blur2"></div>
-<div class="blur blur3"></div>
-
-<div class="floating" id="floating"></div>
-
-<button class="music" onclick="toggleMusic()">🎵</button>
-
-<section class="hero">
-
-<!-- TOP -->
-
-<div class="top">
-
-<div class="sun">🌅</div>
-
-<h1>
-Good Morning<br>
-Chweety ❤️
-</h1>
-
-<p class="subtitle">
-Every sunrise feels more beautiful because I have you.
-You are my peace, happiness, comfort and my favorite person
-in this entire world. ✨
-</p>
-
-<div class="time-wrap">
-<div class="time-box">
-
-<div id="time"></div>
-<div id="date"></div>
-
-</div>
-</div>
-
-</div>
-
-<!-- GALLERY -->
-
-<div class="gallery-section">
-
-<h2 class="section-title">
-Our Beautiful Memories 💖
-</h2>
-
-<div class="gallery">
-
-<div class="photo">
-<img src="20260403_152128.jpg">
-</div>
-
-<div class="photo">
-<img src="20260402_151301.jpg">
-</div>
-
-<div class="photo">
-<img src="20260317_164344.jpg">
-</div>
-
-<div class="photo">
-<img src="IMG-20260314-WA0026.jpg">
-</div>
-
-<div class="photo">
-<img src="IMG-20260314-WA0040.jpg">
-</div>
-
-</div>
-
-</div>
-
-<!-- MESSAGE -->
-
-<div class="message-box" id="message">
-
-Good morning to the most beautiful girl in my life ❤️<br><br>
-
-I hope your day is filled with happiness, peace,
-cute moments, smiles and endless love.
-Seeing you smile honestly makes my entire world brighter. 🌸✨
-
-</div>
-
-<div class="center">
-
-<button class="btn" onclick="changeMessage()">
-More Love 💌
-</button>
-
-</div>
-
-</section>
-
-<!-- MUSIC -->
-
-<audio id="bgmusic" loop autoplay>
-<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8a4019d7f.mp3?filename=beautiful-piano-ambient-110624.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-
-/* CLOCK */
-
-function updateClock(){
-
-    const now = new Date();
-
-    let hours = now.getHours();
-    let minutes = now.getMinutes();
-
-    const ampm = hours >= 12 ? 'PM' : 'AM';
-
-    hours = hours % 12;
-    hours = hours ? hours : 12;
-
-    minutes = minutes < 10 ? '0' + minutes : minutes;
-
-    document.getElementById('time').innerHTML =
-    `${hours}:${minutes} ${ampm}`;
-
-    document.getElementById('date').innerHTML =
-    now.toLocaleDateString('en-US',{
-        weekday:'long',
-        month:'long',
-        day:'numeric'
-    });
-}
-
-setInterval(updateClock,1000);
-
-updateClock();
-
-/* FLOATING ELEMENTS */
-
-const floating = document.getElementById('floating');
-
-const icons = ['❤️','💖','✨','💕','🌸'];
-
-for(let i=0;i<70;i++){
-
-    const span = document.createElement('span');
-
-    span.innerHTML =
-    icons[Math.floor(Math.random()*icons.length)];
-
-    span.style.left =
-    Math.random()*100 + 'vw';
-
-    span.style.fontSize =
-    (Math.random()*22 + 14) + 'px';
-
-    span.style.animationDuration =
-    (Math.random()*10 + 8) + 's';
-
-    span.style.animationDelay =
-    Math.random()*5 + 's';
-
-    floating.appendChild(span);
-}
-
-/* LOVE MESSAGES */
-
-const messages = [
-
-"Every moment with you feels magical ❤️",
-
-"Your smile is my favorite sunrise 🌅",
-
-"You make my life beautiful ✨",
-
-"I fall in love with you more every day 💖",
-
-"You are my happiness and peace 🌸",
-
-"My world feels complete with you ❤️"
-
-];
-
-function changeMessage(){
-
-    const random =
-    messages[Math.floor(Math.random()*messages.length)];
-
-    document.getElementById('message').innerHTML =
-    random;
-}
-
-/* MUSIC */
-
-const music = document.getElementById('bgmusic');
-
-document.body.addEventListener('click', () => {
-    music.play();
-}, { once:true });
-
-function toggleMusic(){
-
-    if(music.paused){
-        music.play();
-    }else{
-        music.pause();
-    }
-}
-
-</script>
-
+    <div class="bg-animation"></div>
+    <div class="particles" id="particles"></div>
+    <canvas id="confetti-canvas"></canvas>
+
+    <header>
+        <div class="birthday-badge">✨ Special Day ✨</div>
+        <h1>Your Birthday<br>Adventure</h1>
+        <p class="subtitle">A day planned with love, just for you</p>
+        
+        <div class="time-display">
+            <span class="live-dot"></span>
+            <span id="current-time">Loading...</span>
+        </div>
+    </header>
+
+    <div class="timeline-container" id="timeline">
+        <div class="timeline-line" id="timeline-line"></div>
+        
+        <!-- Timeline items will be injected here by JavaScript -->
+    </div>
+
+    <!-- Surprise Modal -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal-content">
+            <span class="modal-emoji" id="modal-emoji">🎉</span>
+            <h2 class="modal-title" id="modal-title">Surprise!</h2>
+            <p class="modal-text" id="modal-text">Something amazing is waiting for you!</p>
+            <button class="modal-close" onclick="closeModal()">Continue ✨</button>
+        </div>
+    </div>
+
+    <script>
+        // Configuration - EDIT THESE TIMES AND EVENTS
+        const itinerary = [
+            {
+                time: "09:00",
+                title: "Morning Surprise",
+                subtitle: "The day begins with magic",
+                description: "Wake up to a beautiful breakfast in bed! Fresh croissants, strawberries, and your favorite coffee waiting for you. A handwritten letter will be on the tray too. 💌",
+                emojis: ["☕", "🥐", "🍓", "💌"],
+                modalEmoji: "☀️",
+                modalText: "Good morning, beautiful! Your special day starts now."
+            },
+            {
+                time: "11:00",
+                title: "Spa & Relaxation",
+                subtitle: "Pamper yourself, you deserve it",
+                description: "Time for a luxurious spa session! Massage, facial, and complete relaxation. Let all your stress melt away while you're treated like royalty. 🧖‍♀️",
+                emojis: ["🧖‍♀️", "💆", "🕯️", "✨"],
+                modalEmoji: "🧘",
+                modalText: "Relax and enjoy every moment. You work so hard, today is all about YOU."
+            },
+            {
+                time: "13:00",
+                title: "Lunch Date",
+                subtitle: "Your favorite cuisine awaits",
+                description: "A reservation at that restaurant you've been wanting to try! The table is booked, the menu is ready, and your favorite wine is chilling. Bon appétit! 🍷",
+                emojis: ["🍽️", "🍷", "🥗", "🍰"],
+                modalEmoji: "🍾",
+                modalText: "Time to feast! Every dish was chosen with your taste in mind."
+            },
+            {
+                time: "15:30",
+                title: "Adventure Time",
+                subtitle: "A little mystery and fun",
+                description: "A surprise activity awaits! Pack comfortable shoes and an adventurous spirit. I promise it'll be something you'll never forget. The destination is a secret! 🗺️",
+                emojis: ["🗺️", "🎒", "📸", "🌟"],
+                modalEmoji: "🎯",
+                modalText: "Adventure is out there! Trust the journey, love."
+            },
+            {
+                time: "18:00",
+                title: "Sunset & Photos",
+                subtitle: "Capture the golden hour",
+                description: "A professional photographer will meet us at the scenic spot. Dress in your favorite outfit - we're capturing memories that will last forever. The sunset will be our backdrop! 📸",
+                emojis: ["📸", "🌅", "👗", "💕"],
+                modalEmoji: "📷",
+                modalText: "You look stunning! Let's capture these beautiful moments together."
+            },
+            {
+                time: "20:00",
+                title: "Dinner Under Stars",
+                subtitle: "The grand finale",
+                description: "A private rooftop dinner with candlelight, fairy lights, and the city skyline. Your favorite song playing softly. And yes, there's a special dessert with a sparkler! 🌟",
+                emojis: ["🌃", "🕯️", "🎵", "🎂"],
+                modalEmoji: "🌟",
+                modalText: "The perfect ending to a perfect day. I love you more than words can say."
+            }
+        ];
+
+        // State management
+        let revealedItems = new Set();
+        let currentTime = new Date();
+
+        // Create particles
+        function createParticles() {
+            const container = document.getElementById('particles');
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                particle.style.animationDelay = Math.random() * 10 + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        // Update current time display
+        function updateTime() {
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString('en-US', { 
+                hour: '2-digit', 
+                minute: '2-digit',
+                hour12: true 
+            });
+            document.getElementById('current-time').textContent = timeStr;
+            currentTime = now;
+            checkUnlocks();
+        }
+
+        // Parse time string to Date object for today
+        function parseTime(timeStr) {
+            const [hours, minutes] = timeStr.split(':').map(Number);
+            const date = new Date();
+            date.setHours(hours, minutes, 0, 0);
+            return date;
+        }
+
+        // Check if time has passed
+        function isUnlocked(timeStr) {
+            return currentTime >= parseTime(timeStr);
+        }
+
+        // Check if item is currently active (within 1 hour of start)
+        function isActive(timeStr) {
+            const itemTime = parseTime(timeStr);
+            const oneHourLater = new Date(itemTime.getTime() + 60 * 60 * 1000);
+            return currentTime >= itemTime && currentTime < oneHourLater;
+        }
+
+        // Check if item is completed (more than 1.5 hours past)
+        function isCompleted(timeStr) {
+            const itemTime = parseTime(timeStr);
+            const oneHalfHourLater = new Date(itemTime.getTime() + 90 * 60 * 1000);
+            return currentTime >= oneHalfHourLater;
+        }
+
+        // Get time until unlock
+        function getTimeUntil(timeStr) {
+            const itemTime = parseTime(timeStr);
+            const diff = itemTime - currentTime;
+            if (diff <= 0) return null;
+            
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            
+            if (hours > 0) return `${hours}h ${minutes}m`;
+            return `${minutes}m`;
+        }
+
+        // Create timeline HTML
+        function createTimeline() {
+            const container = document.getElementById('timeline');
+            const line = document.getElementById('timeline-line');
+            
+            // Remove existing items (keep the line)
+            const items = container.querySelectorAll('.timeline-item');
+            items.forEach(item => item.remove());
+
+            itinerary.forEach((item, index) => {
+                const unlocked = isUnlocked(item.time);
+                const active = isActive(item.time);
+                const completed = isCompleted(item.time);
+                const timeUntil = getTimeUntil(item.time);
+                const isRevealed = revealedItems.has(index);
+
+                const div = document.createElement('div');
+                div.className = `timeline-item ${completed ? 'completed' : ''} ${active ? 'active' : ''} ${!unlocked ? 'locked' : ''}`;
+                div.style.animationDelay = `${index * 0.1}s`;
+
+                div.innerHTML = `
+                    <div class="timeline-card">
+                        ${!unlocked ? `
+                            <div class="locked-overlay" id="lock-${index}">
+                                <span class="lock-icon">🔒</span>
+                                <span class="locked-text">Unlocks at ${item.time}</span>
+                                <span class="countdown-timer" id="countdown-${index}">${timeUntil ? `in ${timeUntil}` : 'soon'}</span>
+                            </div>
+                        ` : ''}
+                        
+                        <div class="time-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                            ${item.time}
+                        </div>
+                        
+                        <h3 class="card-title">${item.title}</h3>
+                        <p class="card-subtitle">${item.subtitle}</p>
+                        
+                        ${unlocked ? `
+                            <button class="reveal-btn" onclick="revealItem(${index})" id="btn-${index}">
+                                <span>${isRevealed ? 'Hide Plan' : 'Reveal Plan'}</span>
+                                <span>${isRevealed ? '👁️' : '✨'}</span>
+                            </button>
+                            
+                            <div class="revealed-content ${isRevealed ? 'show' : ''}" id="content-${index}">
+                                <div class="content-inner">
+                                    <p>${item.description}</p>
+                                    <div class="emoji-row">
+                                        ${item.emojis.map(e => `<span>${e}</span>`).join('')}
+                                    </div>
+                                </div>
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+
+                container.appendChild(div);
+            });
+
+            // Update progress line
+            updateProgressLine();
+        }
+
+        // Update progress line height
+        function updateProgressLine() {
+            const items = document.querySelectorAll('.timeline-item');
+            let progress = 0;
+            
+            items.forEach((item, index) => {
+                if (isCompleted(itinerary[index].time)) {
+                    progress = ((index + 1) / items.length) * 100;
+                } else if (isActive(itinerary[index].time)) {
+                    progress = ((index + 0.5) / items.length) * 100;
+                }
+            });
+            
+            document.getElementById('timeline-line').style.setProperty('--progress', progress + '%');
+        }
+
+        // Reveal item
+        function revealItem(index) {
+            const content = document.getElementById(`content-${index}`);
+            const btn = document.getElementById(`btn-${index}`);
+            const isShowing = content.classList.contains('show');
+            
+            if (!isShowing) {
+                // Revealing
+                content.classList.add('show');
+                btn.innerHTML = '<span>Hide Plan</span><span>👁️</span>';
+                revealedItems.add(index);
+                
+                // Show surprise modal
+                showModal(itinerary[index]);
+                
+                // Launch confetti
+                launchConfetti();
+                
+                // Create floating hearts
+                createFloatingHearts();
+            } else {
+                // Hiding
+                content.classList.remove('show');
+                btn.innerHTML = '<span>Reveal Plan</span><span>✨</span>';
+                revealedItems.delete(index);
+            }
+        }
+
+        // Show modal
+        function showModal(item) {
+            document.getElementById('modal-emoji').textContent = item.modalEmoji;
+            document.getElementById('modal-title').textContent = item.title;
+            document.getElementById('modal-text').textContent = item.modalText;
+            document.getElementById('modal').classList.add('show');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('show');
+        }
+
+        // Check and update unlocks
+        function checkUnlocks() {
+            let needsUpdate = false;
+            
+            itinerary.forEach((item, index) => {
+                const unlocked = isUnlocked(item.time);
+                const lockOverlay = document.getElementById(`lock-${index}`);
+                const countdown = document.getElementById(`countdown-${index}`);
+                
+                if (lockOverlay && unlocked) {
+                    // Just unlocked! Animate removal
+                    lockOverlay.style.opacity = '0';
+                    lockOverlay.style.transform = 'scale(1.1)';
+                    setTimeout(() => {
+                        createTimeline(); // Recreate to show unlocked state
+                        launchConfetti();
+                    }, 500);
+                    needsUpdate = true;
+                } else if (countdown && !unlocked) {
+                    const timeUntil = getTimeUntil(item.time);
+                    countdown.textContent = timeUntil ? `in ${timeUntil}` : 'soon';
+                }
+            });
+            
+            if (!needsUpdate) {
+                updateProgressLine();
+            }
+        }
+
+        // Confetti System
+        function launchConfetti() {
+            const canvas = document.getElementById('confetti-canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            const colors = ['#ff6b9d', '#c77dff', '#ff9e00', '#ffb3c6', '#fff', '#ffd700'];
+            const confetti = [];
+            
+            for (let i = 0; i < 150; i++) {
+                confetti.push({
+                    x: Math.random() * canvas.width,
+                    y: -20,
+                    w: Math.random() * 10 + 5,
+                    h: Math.random() * 10 + 5,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    speed: Math.random() * 5 + 3,
+                    angle: Math.random() * 360,
+                    spin: Math.random() * 10 - 5,
+                    opacity: 1
+                });
+            }
+            
+            let animationId;
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                let active = false;
+                
+                confetti.forEach(p => {
+                    if (p.opacity > 0) {
+                        active = true;
+                        p.y += p.speed;
+                        p.x += Math.sin(p.angle * Math.PI / 180) * 2;
+                        p.angle += p.spin;
+                        p.opacity -= 0.005;
+                        
+                        ctx.save();
+                        ctx.translate(p.x, p.y);
+                        ctx.rotate(p.angle * Math.PI / 180);
+                        ctx.globalAlpha = p.opacity;
+                        ctx.fillStyle = p.color;
+                        ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+                        ctx.restore();
+                    }
+                });
+                
+                if (active) {
+                    animationId = requestAnimationFrame(animate);
+                } else {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                }
+            }
+            
+            animate();
+            setTimeout(() => cancelAnimationFrame(animationId), 5000);
+        }
+
+        // Floating hearts
+        function createFloatingHearts() {
+            for (let i = 0; i < 8; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'floating-heart';
+                    heart.textContent = ['❤️', '💖', '💕', '💗', '💝'][Math.floor(Math.random() * 5)];
+                    heart.style.left = Math.random() * 80 + 10 + '%';
+                    heart.style.bottom = '20%';
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => heart.remove(), 4000);
+                }, i * 200);
+            }
+        }
+
+        // Initialize
+        createParticles();
+        createTimeline();
+        updateTime();
+        setInterval(updateTime, 1000);
+        
+        // Handle resize
+        window.addEventListener('resize', () => {
+            const canvas = document.getElementById('confetti-canvas');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // Close modal on overlay click
+        document.getElementById('modal').addEventListener('click', (e) => {
+            if (e.target.id === 'modal') closeModal();
+        });
+
+        // Keyboard support
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+    </script>
 </body>
-</html>
+</html>'''
+
+# Save to output
+with open('/mnt/agents/output/birthday_itinerary.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print("✅ Birthday itinerary website created successfully!")
+print(f"📄 File size: {len(html_content):,} characters")
